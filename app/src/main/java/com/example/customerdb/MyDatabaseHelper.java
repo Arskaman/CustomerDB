@@ -33,7 +33,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_NAME + " TEXT, " +
                         COLUMN_COMPANY + " TEXT, " +
                         COLUMN_CITY + " TEXT, " +
-                        COLUMN_PHONE + " INTEGER, " +
+                        COLUMN_PHONE + " TEXT, " +
                         COLUMN_EMAIL + " TEXT);";
         db.execSQL(guery);
 
