@@ -1,8 +1,10 @@
 package com.example.customerdb;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -44,5 +46,22 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
 
+    }
+
+    void addBook(String name, String company, String city, String phone, String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_NAME, name);
+        cv.put(COLUMN_COMPANY, company);
+        cv.put(COLUMN_CITY, city);
+        cv.put(COLUMN_PHONE, phone);
+        cv.put(COLUMN_EMAIL, email);
+        long result = db.insert(TABLE_NAME, null, cv);
+        if (result == -1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
+        }
     }
 }
