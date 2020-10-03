@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+
+            <TextView
+                android:id="@+id/_id.txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="1"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/customer_name.txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginBottom="50dp"
+                android:text="Antti asiakas"
+
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/_id.txt" />
+
+            <TextView
+                android:id="@+id/customer_company.txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:text="Yritys oy"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toEndOf="@+id/customer_name.txt"
+                app:layout_constraintTop_toTopOf="@+id/customer_name.txt" />
+
+            <TextView
+                android:id="@+id/customer_city.txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="Seinäjoki"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toEndOf="@+id/customer_mail.txt"
+                app:layout_constraintTop_toTopOf="@+id/customer_mail.txt" />
+
+            <TextView
+                android:id="@+id/customer_phone.txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:text="040123123"
+                app:layout_constraintEnd_toEndOf="@+id/customer_name.txt"
+                app:layout_constraintTop_toBottomOf="@+id/customer_name.txt" />
+
+            <TextView
+                android:id="@+id/customer_mail.txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="antti.asiakas@firma.fi"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toEndOf="@+id/customer_phone.txt"
+                app:layout_constraintTop_toTopOf="@+id/customer_phone.txt" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
