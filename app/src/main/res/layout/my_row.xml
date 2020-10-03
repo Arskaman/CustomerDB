@@ -16,7 +16,7 @@
 
 
             <TextView
-                android:id="@+id/_id.txt"
+                android:id="@+id/_id_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -27,7 +27,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/customer_name.txt"
+                android:id="@+id/customer_name_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="70dp"
@@ -37,51 +37,51 @@
 
                 android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/_id.txt" />
+                app:layout_constraintStart_toEndOf="@+id/_id_txt" />
 
             <TextView
-                android:id="@+id/customer_company.txt"
+                android:id="@+id/customer_company_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
                 android:text="Yritys oy"
                 android:textAllCaps="false"
-                app:layout_constraintStart_toEndOf="@+id/customer_name.txt"
-                app:layout_constraintTop_toTopOf="@+id/customer_name.txt" />
+                app:layout_constraintStart_toEndOf="@+id/customer_name_txt"
+                app:layout_constraintTop_toTopOf="@+id/customer_name_txt" />
 
             <TextView
-                android:id="@+id/customer_city.txt"
+                android:id="@+id/customer_city_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
                 android:text="Seinäjoki"
                 android:textAllCaps="false"
-                app:layout_constraintStart_toEndOf="@+id/customer_mail.txt"
-                app:layout_constraintTop_toTopOf="@+id/customer_mail.txt" />
+                app:layout_constraintStart_toEndOf="@+id/customer_email_txt"
+                app:layout_constraintTop_toTopOf="@+id/customer_email_txt" />
 
             <TextView
-                android:id="@+id/customer_phone.txt"
+                android:id="@+id/customer_phone_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="50dp"
                 android:layout_marginRight="50dp"
                 android:text="040123123"
-                app:layout_constraintEnd_toEndOf="@+id/customer_name.txt"
-                app:layout_constraintTop_toBottomOf="@+id/customer_name.txt" />
+                app:layout_constraintEnd_toEndOf="@+id/customer_name_txt"
+                app:layout_constraintTop_toBottomOf="@+id/customer_name_txt" />
 
             <TextView
-                android:id="@+id/customer_mail.txt"
+                android:id="@+id/customer_email_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
                 android:text="antti.asiakas@firma.fi"
                 android:textAllCaps="false"
-                app:layout_constraintStart_toEndOf="@+id/customer_phone.txt"
-                app:layout_constraintTop_toTopOf="@+id/customer_phone.txt" />
+                app:layout_constraintStart_toEndOf="@+id/customer_phone_txt"
+                app:layout_constraintTop_toTopOf="@+id/customer_phone_txt" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
