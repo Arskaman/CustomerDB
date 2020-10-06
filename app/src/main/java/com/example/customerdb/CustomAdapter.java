@@ -36,6 +36,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder._id_txt.setText(String.valueOf(_id.get(position)));
+        holder.customer_name_txt.setText(String.valueOf(customer_name.get(position)));
+        holder.customer_company_txt.setText(String.valueOf(customer_company.get(position)));
+        holder.customer_city_txt.setText(String.valueOf(customer_city.get(position)));
+        holder.customer_phone_txt.setText(String.valueOf(customer_phone.get(position)));
+        holder.customer_email_txt.setText(String.valueOf(customer_email.get(position)));
 
 
 
@@ -43,7 +49,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return _id.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

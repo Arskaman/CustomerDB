@@ -1,6 +1,7 @@
 package com.example.customerdb;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton add_button;
     MyDatabaseHelper myDB;
     ArrayList<String> _id, customer_name, customer_company, customer_city, customer_phone, customer_email;
+    CustomAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         storeDataInArrays();
+        customAdapter = new CustomAdapter(MainActivity.this, _id, customer_name, customer_company, customer_city, customer_phone, customer_email);
+        recyclerView.setAdapter(customAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
     }
 
