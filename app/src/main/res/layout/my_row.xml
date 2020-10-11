@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#709E72"
+    android:background="#D4F3D4"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#009688"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#FFFFFF">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,8 +59,8 @@
                 android:id="@+id/customer_city_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
                 android:text="Seinäjoki"
                 android:textAllCaps="false"
                 app:layout_constraintStart_toEndOf="@+id/customer_email_txt"
@@ -81,8 +81,8 @@
                 android:id="@+id/customer_email_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
                 android:text="antti.asiakas@firma.fi"
                 android:textAllCaps="false"
                 app:layout_constraintStart_toEndOf="@+id/customer_phone_txt"
