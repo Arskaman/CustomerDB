@@ -32,6 +32,7 @@ public class AddActivity extends AppCompatActivity {
                         city_input.getText().toString().trim(),
                         phone_input.getText().toString().trim(),
                         email_input.getText().toString().trim());
+               // finish(); //palaa takaisin main activityyn
             }
         });
 
