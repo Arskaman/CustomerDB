@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UpdateActivity"
+            android:label="Update Customer"
+            android:parentActivityName=".MainActivity"
+            />
         <activity
             android:name=".AddActivity"
             android:label="Add Customer"
-           android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:label="Customers">

@@ -1,9 +1,11 @@
 package com.example.customerdb;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     private Context context;
     private ArrayList _id, customer_name, customer_company, customer_city, customer_phone, customer_email;
+   // int position;
 
     CustomAdapter(Context context, ArrayList _id, ArrayList customer_name, ArrayList customer_company, ArrayList customer_city, ArrayList customer_phone, ArrayList customer_email) {
         this.context = context;
@@ -35,13 +38,27 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
+        //this.position = position; //Update
         holder._id_txt.setText(String.valueOf(_id.get(position)));
         holder.customer_name_txt.setText(String.valueOf(customer_name.get(position)));
         holder.customer_company_txt.setText(String.valueOf(customer_company.get(position)));
         holder.customer_city_txt.setText(String.valueOf(customer_city.get(position)));
         holder.customer_phone_txt.setText(String.valueOf(customer_phone.get(position)));
         holder.customer_email_txt.setText(String.valueOf(customer_email.get(position)));
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() { //Update
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UpdateActivity.class);
+                intent.putExtra("id", String.valueOf(_id.get(position)));
+                intent.putExtra("name", String.valueOf(customer_name.get(position)));
+                intent.putExtra("company", String.valueOf(customer_company.get(position)));
+                intent.putExtra("city", String.valueOf(customer_city.get(position)));
+                intent.putExtra("phone", String.valueOf(customer_phone.get(position)));
+                intent.putExtra("email", String.valueOf(customer_email.get(position)));
+                context.startActivity(intent);
+            } //Update
+        });
 
 
 
@@ -55,6 +72,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView _id_txt, customer_name_txt, customer_company_txt, customer_city_txt, customer_phone_txt, customer_email_txt;
+        LinearLayout mainLayout; //Update
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +83,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             customer_city_txt = itemView.findViewById(R.id.customer_city_txt);
             customer_phone_txt = itemView.findViewById(R.id.customer_phone_txt);
             customer_email_txt = itemView.findViewById(R.id.customer_email_txt);
+            mainLayout = itemView.findViewById(R.id.mainLayout); // Update
 
         }
     }
