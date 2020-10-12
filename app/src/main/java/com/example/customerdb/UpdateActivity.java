@@ -18,20 +18,26 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        name_input = findViewById(R.id.name_input);
-        company_input = findViewById(R.id.company_input);
-        city_input = findViewById(R.id.city_input);
-        phone_input = findViewById(R.id.phone_input);
-        email_input = findViewById(R.id.email_input);
+        name_input = findViewById(R.id.name_input2);
+        company_input = findViewById(R.id.company_input2);
+        city_input = findViewById(R.id.city_input2);
+        phone_input = findViewById(R.id.phone_input2);
+        email_input = findViewById(R.id.email_input2);
         update_button = findViewById(R.id.update_button);
+
+        getAndSetIntentData();
+
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                myDB.dataUpdate(id, name, company, city, phone, email); // tätä kutsutaan viimeiseksi
 
             }
 
         });
-       // getAndSetIntentData();
+
+
     }
 
 
@@ -52,7 +58,7 @@ public class UpdateActivity extends AppCompatActivity {
             email_input.setText(email);
 
         }else {
-            //Toast.makeText(this, "No data!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No data!", Toast.LENGTH_SHORT).show();
         }
     }
 }

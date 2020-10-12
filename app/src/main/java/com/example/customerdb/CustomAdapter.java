@@ -1,5 +1,6 @@
 package com.example.customerdb;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -16,10 +17,12 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     private Context context;
+    private Activity activity;
     private ArrayList _id, customer_name, customer_company, customer_city, customer_phone, customer_email;
    // int position;
 
-    CustomAdapter(Context context, ArrayList _id, ArrayList customer_name, ArrayList customer_company, ArrayList customer_city, ArrayList customer_phone, ArrayList customer_email) {
+    CustomAdapter(Activity activity, Context context, ArrayList _id, ArrayList customer_name, ArrayList customer_company, ArrayList customer_city, ArrayList customer_phone, ArrayList customer_email) {
+        this.activity = activity;
         this.context = context;
         this._id = _id;
         this.customer_name = customer_name;
@@ -56,8 +59,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("city", String.valueOf(customer_city.get(position)));
                 intent.putExtra("phone", String.valueOf(customer_phone.get(position)));
                 intent.putExtra("email", String.valueOf(customer_email.get(position)));
-                context.startActivity(intent);
-            } //Update
+                activity.startActivityForResult(intent,1); // nyt refressaa
+            }
         });
 
 

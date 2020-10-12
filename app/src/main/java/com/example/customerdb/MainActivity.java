@@ -1,5 +1,6 @@
 package com.example.customerdb;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,13 +49,22 @@ public class MainActivity extends AppCompatActivity {
         customer_phone = new ArrayList<>();
         customer_email = new ArrayList<>();
 
-
+//_id, customer_name, customer_company, customer_city, customer_phone, customer_email
         storeDataInArrays();
-        customAdapter = new CustomAdapter(MainActivity.this, _id, customer_name, customer_company, customer_city, customer_phone, customer_email);
+        customAdapter = new CustomAdapter(MainActivity.this, this, _id, customer_name, customer_company, customer_city, customer_phone, customer_email);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            recreate();
+        }
+    }
+
+
 
     void storeDataInArrays () {
         Cursor cursor = myDB.readAllData();

@@ -23,7 +23,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PHONE = "customer_phone"; // INTEGER!
     private static final String COLUMN_EMAIL = "customer_email";
 
-    public MyDatabaseHelper(@Nullable Context context) {
+     MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -75,5 +75,22 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
+
+    void dataUpdate(String row_id, String name, String company, String city, String phone, String email){ //muistetaan antaa muuttujat (row_id?)
+         SQLiteDatabase db = this.getWritableDatabase(); // otetaan writable koska tietoja päivitetään eikä vain lueta
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NAME, name);
+        cv.put(COLUMN_COMPANY, company);
+        cv.put(COLUMN_CITY, city);
+        cv.put(COLUMN_PHONE, phone);
+        cv.put(COLUMN_EMAIL, email);
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+
+        if (result == -1) {
+            Toast.makeText(context, "Update failed!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Update OK!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
