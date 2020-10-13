@@ -30,10 +30,15 @@ public class UpdateActivity extends AppCompatActivity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //And only then we call this
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
-                myDB.dataUpdate(id, name, company, city, phone, email); // tätä kutsutaan viimeiseksi
-
-            }
+                name = name_input.getText().toString().trim();
+                company = company_input.getText().toString().trim();
+                city = city_input.getText().toString().trim();
+                phone = phone_input.getText().toString().trim();
+                email = email_input.getText().toString().trim();
+                myDB.dataUpdate(id, name, company, city, phone, email);// tätä kutsutaan viimeisekksi
+            }// Nyt päivitys toimii!
 
         });
 
