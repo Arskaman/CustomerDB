@@ -1,7 +1,10 @@
 package com.example.customerdb;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +13,7 @@ import android.widget.Toast;
 
 public class UpdateActivity extends AppCompatActivity {
     EditText name_input, company_input, city_input, phone_input, email_input;
-    Button update_button;
+    Button update_button, delete_button; //delete button vaihe1
     String id, name, company, city, phone, email;
 
     @Override
@@ -24,6 +27,7 @@ public class UpdateActivity extends AppCompatActivity {
         phone_input = findViewById(R.id.phone_input2);
         email_input = findViewById(R.id.email_input2);
         update_button = findViewById(R.id.update_button);
+        delete_button = findViewById(R.id.delete_button); //delete button vaihe2
 
         getAndSetIntentData();
 
@@ -38,8 +42,16 @@ public class UpdateActivity extends AppCompatActivity {
                 phone = phone_input.getText().toString().trim();
                 email = email_input.getText().toString().trim();
                 myDB.dataUpdate(id, name, company, city, phone, email);// tätä kutsutaan viimeisekksi
-            }// Nyt päivitys toimii!
+            }
 
+        });
+        delete_button.setOnClickListener(new View.OnClickListener() { //delete button vaihe3
+            @Override
+            public void onClick(View view) {
+                confirmDialog();
+
+
+            }
         });
 
 
@@ -66,4 +78,26 @@ public class UpdateActivity extends AppCompatActivity {
             Toast.makeText(this, "No data!", Toast.LENGTH_SHORT).show();
         }
     }
+    void confirmDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete " + name + " ?");
+        builder.setMessage("Are you sure you want to delete" + name + " ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                myDB.deleteOneRow(id); //Kun painetaan Yes
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+
+
 }
