@@ -51,6 +51,7 @@ public class UpdateActivity extends AppCompatActivity {
                 confirmDialog();
 
 
+
             }
         });
 
@@ -80,13 +81,14 @@ public class UpdateActivity extends AppCompatActivity {
     }
     void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Delete " + name + " ?");
+        builder.setTitle("Delete " + name + "?");
         builder.setMessage("Are you sure you want to delete" + name + " ?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
                 myDB.deleteOneRow(id); //Kun painetaan Yes
+                finish(); // palataan takasin alkunäkymään
 
             }
         });
